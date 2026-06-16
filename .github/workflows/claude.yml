@@ -33,7 +33,7 @@ jobs:
       - name: Project Setup
         run: |
           npm run setup
-          npm run dev:daemon    
+          npm run dev:daemon
 
       - name: Run Claude Code
         id: claude
@@ -41,8 +41,8 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # Configure MCP servers and tool restrictions
-          claude_args: '--mcp-server playwright=npx,@playwright/mcp@latest,--allowed-origins,localhost:3000;cdn.tailwindcss.com;esm.sh --allowed-tools "Bash(npm:*),Bash(sqlite3:*),mcp__playwright__*,mcp__github__*"'
+          # Custom instructions and tool restrictions (v1.0 syntax)
+          claude_args: '--append-system-prompt "The project is already set up with dependencies installed. Dev server is running at localhost:3000 (logs in logs.txt). Use sqlite3 CLI for database queries. Use Playwright MCP tools to open browser and test the app." --allowedTools "Bash(npm:*),Bash(sqlite3:*),mcp__playwright__*,mcp__github__*" --mcp-config .github/mcp-config.json'
 
           # This allows Claude to read CI results on PRs
           additional_permissions: |
