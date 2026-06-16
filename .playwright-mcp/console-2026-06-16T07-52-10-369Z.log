@@ -1,0 +1,42 @@
+[     578ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_2ce9398a._.js:16383
+[     927ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <div className="flex-1 ove...">
+      <ChatInterface>
+        <div className="flex flex-...">
+          <ScrollArea ref={{current:null}} className="flex-1 ove...">
+            <ScrollArea data-slot="scroll-area" className="relative f..." ref={{current:null}}>
+              <ScrollAreaProvider scope={undefined} type="hover" dir="ltr" scrollHideDelay={600} scrollArea={null} ...>
+                <Primitive.div dir="ltr" data-slot="scroll-area" className="relative f..." ref={function} ...>
+                  <div dir="ltr" data-slot="scroll-area" className="relative f..." style={{position:"...", ...}} ...>
+                    <ScrollAreaViewport data-slot="scroll-are..." className="focus-visi...">
+                      <style>
+                      <Primitive.div data-radix-scroll-area-viewport="" data-slot="scroll-are..." ...>
+                        <div data-radix-scroll-area-viewport="" data-slot="scroll-are..." className="focus-visi..." ...>
+                          <div ref={function bound dispatchSetState} style={{minWidth:"...", ...}}>
+                            <div className="pr-4">
+                              <MessageList messages={[...]} isLoading={false}>
+                                <div
++                                 className="flex flex-col items-center justify-center px-4 text-center"
+-                                 className="flex flex-col items-center justify-center h-full px-4 text-center"
+                                  style={{
++                                   minHeight: "calc(100vh - 220px)"
+                                  }}
+                                >
+                    ...
+          ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_8f19e6fb._.js:1225
+[     981ms] [LOG] [Fast Refresh] done in NaNms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_8f19e6fb._.js:14891
+[    1166ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_8f19e6fb._.js:15027
+[    1191ms] [LOG] [Fast Refresh] done in 126ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_8f19e6fb._.js:14891
